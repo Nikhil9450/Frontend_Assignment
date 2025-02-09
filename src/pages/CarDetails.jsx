@@ -2,6 +2,7 @@ import React from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { Button, Card, ListGroup, Carousel, Image, Container, Row, Col } from "react-bootstrap";
 import './CarDetail.css'
+import { Table } from 'react-bootstrap';
 const CarDetails = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -29,20 +30,58 @@ const CarDetails = () => {
 
           <Col md={6} className="d-flex flex-column justify-content-center">
             <Card.Body className="text-start">
-                <ListGroup variant="flush">
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Model:</span> {car.model}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Make:</span> {car.make}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Engine:</span> {car.engine}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Features:</span> {car.features.join(" , ")}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Color:</span> {car.color}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Price:</span> ${car.price}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Year:</span> {car.year}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Mileage:</span> {car.mileage} km</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Fuel Type:</span> {car.fuelType}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Transmission:</span> {car.transmission}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Horsepower:</span> {car.horsepower}</ListGroup.Item>
-                    <ListGroup.Item className="listGroupItem" ><span className="spanHeaders">Owners:</span> {car.owners}</ListGroup.Item>
-              </ListGroup>
+            <Table  bordered hover responsive>
+                <tbody>
+                    <tr>
+                        <td className="spanHeaders">Model:</td>
+                        <td>{car.model}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Make:</td>
+                        <td>{car.make}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Engine:</td>
+                        <td>{car.engine}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Features:</td>
+                        <td>{car.features.join(", ")}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Color:</td>
+                        <td>{car.color}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Price:</td>
+                        <td>{car.price}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Year:</td>
+                        <td>{car.year}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Mileage:</td>
+                        <td>{car.mileage} km</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Fuel Type:</td>
+                        <td>{car.fuelType}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Transmission:</td>
+                        <td>{car.transmission}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Horsepower:</td>
+                        <td>{car.horsepower}</td>
+                    </tr>
+                    <tr>
+                        <td className="spanHeaders">Owners:</td>
+                        <td>{car.owners}</td>
+                    </tr>
+                </tbody>
+            </Table>
               <Button 
                 variant="outline-primary" 
                 size="md" 

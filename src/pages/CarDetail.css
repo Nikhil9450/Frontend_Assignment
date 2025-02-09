@@ -2,7 +2,12 @@
     font-size: 0.7rem;
 }
 .spanHeaders{
-    width: 8rem;
-    display: inline-block;
     font-weight: 500;
+    font-size: 12px;
+}
+
+td {
+    word-break: break-word;
+    font-size: 12px;
+    border: none;
 }

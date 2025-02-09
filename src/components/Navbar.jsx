@@ -6,9 +6,9 @@ import Navbar from "react-bootstrap/Navbar";
 
 function PageNavbar() {
   return (
-    <Navbar collapseOnSelect expand="lg" className="bg-body-tertiary px-3">
+    <Navbar collapseOnSelect expand="lg" className="px-3" style={{background:"#c6c6c6"}}>
       <Container>
-        <Navbar.Brand as={Link} to="/" className="text-primary " style={{fontSize:'1rem'}}>
+        <Navbar.Brand as={Link} to="/" className="text-primary " style={{fontSize:'1rem',color:'black !important'}}>
           Home
         </Navbar.Brand>
 

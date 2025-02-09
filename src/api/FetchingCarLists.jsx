@@ -7,8 +7,7 @@ import Filter from '../components/Filter';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import InputGroup from 'react-bootstrap/InputGroup';
-import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
+
 const FetchingCarLists = () => {
     const [carsList, setCarsList] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -20,6 +19,7 @@ const FetchingCarLists = () => {
     const itemsPerPage = 10;
     const [filteredCars, setFilteredCars] = useState(carsList);
     const [searchQuery, setSearchQuery] = useState("");
+    
     useEffect(() => {
         axios.get('https://run.mocky.io/v3/8e4474f3-d675-44c2-ba12-ccfacfa97c8b')
             .then(response => {
@@ -49,7 +49,7 @@ const FetchingCarLists = () => {
       console.log("model--------->",model)
       console.log("year--------->",year)
     },[make,model,year])
-    
+
     const lastIndex = currentPage * itemsPerPage;
     const firstIndex = lastIndex - itemsPerPage;
     const currentCars = filteredCars.slice(firstIndex, lastIndex);
@@ -102,14 +102,27 @@ const FetchingCarLists = () => {
     return (
         <div>
             <div className='FilterContainer'>
-            <div className="container mt-3">
-                <Row className="g-2">
-                    <Col xs={12}>
-                        <InputGroup className="mb-3">
+                    <div className='pagination_container'>
+                        {filteredCars.length > itemsPerPage && (
+                                <Pagination className="mt-3">
+                                    {[...Array(Math.ceil(carsList.length / itemsPerPage))].map((_, index) => (
+                                        <Pagination.Item
+                                            key={index + 1}
+                                            active={index + 1 === currentPage}
+                                            onClick={() => handlePageChange(index + 1)}
+                                        >
+                                            {index + 1}
+                                        </Pagination.Item>
+                                    ))}
+                                </Pagination>
+                            )}
+                    </div>
+                    <div className='search_container'>
+                        <InputGroup >
                             <Form.Control
                                 className='search_input'
                                 size="sm"
-                                placeholder="Search Model / Year / Color / Price"
+                                placeholder="Model / Year / Color / Price"
                                 aria-label="Search Model/Year/Color/Price"
                                 aria-describedby="basic-addon2"
                                 value={searchQuery}
@@ -119,11 +132,9 @@ const FetchingCarLists = () => {
                                 Search
                             </Button>
                         </InputGroup>
-                    </Col>
-                </Row>
-                <Filter make={make} model={model} year={year} onApplyFilter={handleFilterApply}/>
 
-            </div>
+                        <Filter make={make} model={model} year={year} onApplyFilter={handleFilterApply}/>
+                    </div>
             </div>
             <div className='CarListContainer'>
                 {loading && <p>Loading cars...</p>}
@@ -138,21 +149,7 @@ const FetchingCarLists = () => {
                 )}
 
             </div>
-            <div className='pagination_container'>
-                {filteredCars.length > itemsPerPage && (
-                        <Pagination className="mt-3">
-                            {[...Array(Math.ceil(carsList.length / itemsPerPage))].map((_, index) => (
-                                <Pagination.Item
-                                    key={index + 1}
-                                    active={index + 1 === currentPage}
-                                    onClick={() => handlePageChange(index + 1)}
-                                >
-                                    {index + 1}
-                                </Pagination.Item>
-                            ))}
-                        </Pagination>
-                    )}
-            </div>
+
         </div>
     );
 };

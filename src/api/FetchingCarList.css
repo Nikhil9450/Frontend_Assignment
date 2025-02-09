@@ -9,16 +9,18 @@
     justify-content: end;
     align-items: center;
 }
-.FilterContainer,.CarListContainer,.pagination_container{
+.FilterContainer,.CarListContainer{
     margin:2rem 5rem;
 }
 .FilterContainer{
     display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: end;
+    justify-content:space-between;
 }
-
+.search_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 @media (max-width: 1200px) {
     .CarListContainer {
         grid-template-columns: repeat(4, 1fr);
@@ -34,6 +36,9 @@
 @media (max-width: 768px) {
     .CarListContainer {
         grid-template-columns: repeat(2, 1fr);
+    }
+    .FilterContainer{
+        flex-direction: column;
     }
 }
 
