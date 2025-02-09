@@ -1,0 +1,8 @@
+.listGroupItem{
+    font-size: 0.7rem;
+}
+.spanHeaders{
+    width: 8rem;
+    display: inline-block;
+    font-weight: 500;
+}

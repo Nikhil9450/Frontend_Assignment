@@ -1,0 +1,44 @@
+.CarListContainer{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    grid-gap:2rem;
+}
+.pagination_container{
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+.FilterContainer,.CarListContainer,.pagination_container{
+    margin:2rem 5rem;
+}
+.FilterContainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: end;
+}
+
+@media (max-width: 1200px) {
+    .CarListContainer {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 992px) {
+    .CarListContainer {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .CarListContainer {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    .CarListContainer {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
