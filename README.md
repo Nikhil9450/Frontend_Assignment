@@ -1,5 +1,5 @@
 
-# Suzuki Frontend Assignment
+# Frontend Assignment
 
 This is a React.js-based frontend project. Follow the steps below to clone and set it up on another system.
 
